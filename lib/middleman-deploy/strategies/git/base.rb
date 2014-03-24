@@ -3,12 +3,16 @@ module Middleman
     module Strategies
       module Git
         class Base
-          attr_accessor :branch, :build_dir, :remote
+          attr_accessor :branch, :build_dir, :remote, :user, :host, :port, :path
 
-          def initialize(build_dir, remote, branch)
-            self.branch     = branch
-            self.build_dir  = build_dir
-            self.remote     = remote
+          def initialize(build_dir, remote, branch, user = nil, host = nil, port = 22, path = nil)
+            self.branch    = branch
+            self.build_dir = build_dir
+            self.remote    = remote
+            self.user      = user
+            self.host      = host
+            self.port      = port
+            self.path      = path
           end
 
           def process

@@ -6,3 +6,4 @@
 
 # Ignore coverage folder
 /coverage
+.idea/

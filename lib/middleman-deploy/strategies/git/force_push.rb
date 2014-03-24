@@ -10,6 +10,10 @@ module Middleman
               checkout_branch
               commit_branch('-f')
             end
+            if self.user && self.host && self.path
+              port = self.port ? self.port : 22
+              `ssh #{self.user}@#{self.host} -p #{port} "cd #{self.path} && git pull"`
+            end
           end
 
         private
