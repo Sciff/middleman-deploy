@@ -12,7 +12,8 @@ module Middleman
             end
             if self.user && self.host && self.path
               port = self.port ? self.port : 22
-              ssh = "ssh #{self.user}@#{self.host} -p #{port}"
+              key = self.ssh_forward ? '-A' : ''
+              ssh = "ssh #{key} #{self.user}@#{self.host} -p #{port}"
               folder = `#{ssh} "if [ -d #{self.path} ]; then echo "yes"; fi;"`
               folder = `#{ssh} "ls -v #{self.path}"` unless folder.empty?
               if folder.empty?

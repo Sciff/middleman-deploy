@@ -15,7 +15,8 @@ module Middleman
               self.options.user,
               self.options.host,
               self.options.port,
-              self.options.path
+              self.options.path,
+              self.options.ssh_forward
           )
 
           strategy_instance.process
